@@ -1,6 +1,9 @@
 #include "./mlx/mlx.h"
 #include <stdio.h>
 
+# define W 800
+# define H 800
+
 typedef struct s_img
 {
     void    *img;
@@ -31,7 +34,9 @@ typedef struct s_fractol
     double  julia_y;
 }   t_fractal;
 
-void    my_mlx_pixel_put(s_img *data, int x, int y, int color);
-void show(s_img *img, int offset_x, int offset_y);
-t_complex   sum_complex(t_complex ca, t_complex cb);
-t_complex   mult_complex(t_complex ca, t_complex cb);
+void    my_mlx_pixel_put(t_img *data, int x, int y, int color);
+t_complex sum_complex(t_complex z1, t_complex z2);
+t_complex sqr_complex(t_complex z);
+double  map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
+double  atod(char *s);
+int f_strncmp(char *s1, char *s2, int n);
